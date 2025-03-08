@@ -560,7 +560,8 @@ dependencies = [
 [[package]]
 name = "blockifier"
 version = "0.14.0-rc.1"
-source = "git+https://github.com/cptartur/sequencer.git?branch=main-v0.13.4#575dc705433641e521bf61a04edf06a7f487de97"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "aeb4d8bae9ad7f2c482e06ee07aa46d5978fdb435134fe4dbdc3f0aaf405d4dc"
 dependencies = [
  "anyhow",
  "ark-ec",
@@ -584,16 +585,14 @@ dependencies = [
  "papyrus_config",
  "paste",
  "phf",
- "rand",
- "rstest",
- "rstest_reuse",
  "semver",
  "serde",
  "serde_json",
  "sha2",
  "starknet-types-core",
- "starknet_api 0.14.0-rc.1 (git+https://github.com/cptartur/sequencer.git?branch=main-v0.13.4)",
- "starknet_infra_utils 0.14.0-rc.1 (git+https://github.com/cptartur/sequencer.git?branch=main-v0.13.4)",
+ "starknet_api",
+ "starknet_infra_utils",
+ "starknet_sierra_multicompile",
  "strum 0.25.0",
  "strum_macros 0.25.3",
  "tempfile",
@@ -4431,13 +4430,14 @@ checksum = "b15813163c1d831bf4a13c3610c05c0d03b39feb07f7e09fa234dac9b15aaf39"
 [[package]]
 name = "papyrus_config"
 version = "0.14.0-rc.1"
-source = "git+https://github.com/cptartur/sequencer.git?branch=main-v0.13.4#575dc705433641e521bf61a04edf06a7f487de97"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "013c243553148f362ba2a0cc32b32c280ebabcce63173024f820a94b06f3cf0e"
 dependencies = [
  "clap",
  "itertools 0.12.1",
  "serde",
  "serde_json",
- "starknet_infra_utils 0.14.0-rc.1 (git+https://github.com/cptartur/sequencer.git?branch=main-v0.13.4)",
+ "starknet_infra_utils",
  "strum_macros 0.25.3",
  "thiserror 1.0.69",
  "tracing",
@@ -5149,6 +5149,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "rlimit"
+version = "0.10.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "7043b63bd0cd1aaa628e476b80e6d4023a3b50eb32789f2728908107bd0c793a"
+dependencies = [
+ "libc",
+]
+
+[[package]]
 name = "rlp"
 version = "0.5.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -5168,43 +5177,6 @@ dependencies = [
  "proc-macro2",
  "quote",
  "syn 1.0.109",
-]
-
-[[package]]
-name = "rstest"
-version = "0.17.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "de1bb486a691878cd320c2f0d319ba91eeaa2e894066d8b5f8f117c000e9d962"
-dependencies = [
- "futures",
- "futures-timer",
- "rstest_macros",
- "rustc_version",
-]
-
-[[package]]
-name = "rstest_macros"
-version = "0.17.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "290ca1a1c8ca7edb7c3283bd44dc35dd54fdec6253a3912e201ba1072018fca8"
-dependencies = [
- "cfg-if",
- "proc-macro2",
- "quote",
- "rustc_version",
- "syn 1.0.109",
- "unicode-ident",
-]
-
-[[package]]
-name = "rstest_reuse"
-version = "0.7.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "b3a8fb4672e840a587a66fc577a5491375df51ddb88f2a2c2a792598c326fe14"
-dependencies = [
- "quote",
- "rand",
- "syn 2.0.98",
 ]
 
 [[package]]
@@ -6078,7 +6050,7 @@ dependencies = [
  "starknet-devnet-types",
  "starknet-signers",
  "starknet-types-core",
- "starknet_api 0.14.0-rc.1 (registry+https://github.com/rust-lang/crates.io-index)",
+ "starknet_api",
  "thiserror 1.0.69",
  "tracing",
  "url",
@@ -6140,7 +6112,7 @@ dependencies = [
  "serde_json",
  "starknet-core",
  "starknet-types-core",
- "starknet_api 0.14.0-rc.1 (registry+https://github.com/rust-lang/crates.io-index)",
+ "starknet_api",
  "thiserror 1.0.69",
  "universal-sierra-compiler",
 ]
@@ -6233,35 +6205,7 @@ dependencies = [
  "sha3",
  "starknet-crypto 0.7.4",
  "starknet-types-core",
- "starknet_infra_utils 0.14.0-rc.1 (registry+https://github.com/rust-lang/crates.io-index)",
- "strum 0.25.0",
- "strum_macros 0.25.3",
- "thiserror 1.0.69",
-]
-
-[[package]]
-name = "starknet_api"
-version = "0.14.0-rc.1"
-source = "git+https://github.com/cptartur/sequencer.git?branch=main-v0.13.4#575dc705433641e521bf61a04edf06a7f487de97"
-dependencies = [
- "bitvec",
- "cairo-lang-runner",
- "cairo-lang-starknet-classes",
- "derive_more 0.99.19",
- "hex",
- "indexmap 2.7.1",
- "itertools 0.12.1",
- "num-bigint",
- "num-traits",
- "pretty_assertions",
- "primitive-types",
- "semver",
- "serde",
- "serde_json",
- "sha3",
- "starknet-crypto 0.7.4",
- "starknet-types-core",
- "starknet_infra_utils 0.14.0-rc.1 (git+https://github.com/cptartur/sequencer.git?branch=main-v0.13.4)",
+ "starknet_infra_utils",
  "strum 0.25.0",
  "strum_macros 0.25.3",
  "thiserror 1.0.69",
@@ -6278,12 +6222,24 @@ dependencies = [
 ]
 
 [[package]]
-name = "starknet_infra_utils"
+name = "starknet_sierra_multicompile"
 version = "0.14.0-rc.1"
-source = "git+https://github.com/cptartur/sequencer.git?branch=main-v0.13.4#575dc705433641e521bf61a04edf06a7f487de97"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "867f83985bf42f2ba9a2a66a252fbdc994bc8373b2d0306fd40161683a90bc64"
 dependencies = [
- "tokio",
- "tracing",
+ "cairo-lang-sierra 2.10.0",
+ "cairo-lang-starknet-classes",
+ "cairo-lang-utils 2.10.0",
+ "papyrus_config",
+ "rlimit",
+ "serde",
+ "serde_json",
+ "starknet-types-core",
+ "starknet_api",
+ "starknet_infra_utils",
+ "tempfile",
+ "thiserror 1.0.69",
+ "validator",
 ]
 
 [[package]]
